@@ -1,0 +1,127 @@
+syntax = "proto3";
+
+option go_package = "genproto/register";
+
+package register;
+
+service RegisterService {
+    rpc CreateRegister(CreateRegisterRequest) returns (CreateRegisterResponse);
+    rpc Update (UpdateRequest) returns (UpdateResponse);
+    rpc AddImage (AddImageRequest) returns (AddImageResponse);
+    rpc GetRegister (GetRegisterRequest) returns (GetRegisterResponse);
+    rpc GetRegisters (GetRegistersRequest) returns (GetRegistersResponse);
+    rpc DeleteRegister (DeleteRegisterRequest) returns (DeleteRegisterResponse);
+    rpc Login (LoginRequest) returns (LoginResponse);
+    rpc UpdatePassword (UpdatePasswordRequest) returns (UpdatePasswordResponse);
+    rpc CreatePassword (CreatePasswordRequest) returns (CreatePasswordResponse);
+    rpc ConfirmationPassword (ConfirmationPasswordRequest) returns (ConfirmationPasswordResponse);
+}
+
+message ConfirmationPasswordRequest {
+    string email = 1;
+    string code = 2;
+}
+
+message ConfirmationPasswordResponse {
+    string message = 1;
+}
+
+message CreatePasswordRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message CreatePasswordResponse {
+    string message = 1;
+}
+
+message UpdatePasswordRequest {
+    string email = 1;
+    string new_password = 2;
+}
+
+message UpdatePasswordResponse {
+    string message = 1;
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+}
+
+message LoginResponse {
+    string token = 1;
+    Register register = 2;
+    string message = 3;
+}
+
+message DeleteRegisterRequest {
+    string id = 1;
+}
+
+message DeleteRegisterResponse {
+    string message = 1;
+}
+
+message GetRegistersRequest {
+    int32 page = 1;
+    int32 limit = 2;
+}
+
+message GetRegistersResponse {
+    repeated Register registers = 1;
+    int32 total = 2;
+}
+
+message GetRegisterRequest {
+    string id = 1;
+}
+
+message GetRegisterResponse {
+    Register register = 1;
+}
+
+message AddImageResponse {
+    string message = 1;
+}
+
+message AddImageRequest {
+    string id = 1;
+    string image = 2;
+}
+
+message UpdateRequest {
+    string email = 2;
+    string first_name = 3;
+    string last_name = 4;
+    string phonenummer = 5;
+}
+
+message UpdateResponse {
+    Register register = 1;
+}
+
+message Register {
+    string id = 1;
+    string email = 2;
+    string first_name = 3;
+    string last_name = 4;
+    string phonenummer = 5;
+    string password = 6;
+    string image = 7;
+    string role = 8;
+    string created_at = 9;
+    string updated_at = 10;
+    int64 deleted_at = 11;
+}
+
+message CreateRegisterRequest {
+    string email = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string phonenummer = 4;
+}
+
+message CreateRegisterResponse {
+    Register register = 1;
+}
