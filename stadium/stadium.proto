@@ -10,6 +10,20 @@ service StadiumService {
     rpc GetStadium (GetStadiumRequest) returns (GetStadiumResponse);
     rpc GetStadiums (GetStadiumsRequest) returns (GetStadiumsResponse);
     rpc DeleteStadium (DeleteStadiumRequest) returns (DeleteStadiumResponse);
+    rpc OrderStadium (OrderStadiumRequest) returns (OrderStadiumResponse);
+}
+
+message OrderStadiumRequest {
+    string user_id = 1;
+    string stadium_id = 2;
+    string date = 3;
+    string start_time = 4;
+    string end_time = 5;
+    string status = 6;
+}
+
+message OrderStadiumResponse {
+    string message = 1;
 }
 
 message Stadium {
