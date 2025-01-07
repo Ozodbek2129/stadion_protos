@@ -61,17 +61,17 @@ message CreateStadiumResponse {
 
 message UpdateRequest {
     string id = 1;
-    string user_id = 1;
-    float latitude = 2;
-    float longitude = 3;
-    string name = 4;
-    string address = 5;
-    string phonenummer = 6;
-    float price = 7;
-    float length = 8;
-    float width = 9;
-    string situation = 10;
-    repeated string image_urls = 11;
+    string user_id = 2;
+    float latitude = 3;
+    float longitude = 4;
+    string name = 5;
+    string address = 6;
+    string phonenummer = 7;
+    float price = 8;
+    float length = 9;
+    float width = 10;
+    string situation = 11;
+    repeated string image_urls = 12;
 }
 
 message UpdateResponse {
