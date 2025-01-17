@@ -32,7 +32,7 @@ message DeleteOrderStadiumRequest {
 
 message DeleteOrderStadiumResponse {
     string message = 1;
-
+}
 message UpdateOrderStadiumRequest {
     string id = 1;
     string user_id = 2;
