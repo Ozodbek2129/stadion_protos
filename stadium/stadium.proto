@@ -10,10 +10,29 @@ service StadiumService {
     rpc GetStadium (GetStadiumRequest) returns (GetStadiumResponse);
     rpc GetStadiums (GetStadiumsRequest) returns (GetStadiumsResponse);
     rpc DeleteStadium (DeleteStadiumRequest) returns (DeleteStadiumResponse);
-    rpc OrderStadium (OrderStadiumRequest) returns (OrderStadiumResponse);
+    rpc CreateOrderStadium (CreateOrderStadiumRequest) returns (CreateOrderStadiumResponse);
+    rpc GetOrderStadiums (GetOrderStadiumsRequest) returns (GetOrderStadiumsResponse);
 }
 
-message OrderStadiumRequest {
+message OrderStadium {
+    string id = 1;
+    string user_id = 2;
+    string stadium_id = 3;
+    string date = 4;
+    string start_time = 5;
+    string end_time = 6;
+    string status = 7;
+}
+
+message GetOrderStadiumsRequest {
+    string user_id = 1;
+}
+
+message GetOrderStadiumsResponse {
+    repeated OrderStadium order_stadiums = 1;   
+}
+
+message CreateOrderStadiumRequest {
     string user_id = 1;
     string stadium_id = 2;
     string date = 3;
@@ -22,7 +41,7 @@ message OrderStadiumRequest {
     string status = 6;
 }
 
-message OrderStadiumResponse {
+message CreateOrderStadiumResponse {
     string message = 1;
 }
 
