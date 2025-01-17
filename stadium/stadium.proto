@@ -14,7 +14,24 @@ service StadiumService {
     rpc GetOrderStadiums (GetOrderStadiumsRequest) returns (GetOrderStadiumsResponse);
     rpc GetOrderStadium (GetOrderStadiumRequest) returns (GetOrderStadiumResponse);
     rpc UpdateOrderStadium (UpdateOrderStadiumRequest) returns (UpdateOrderStadiumResponse);
+    rpc DeleteOrderStadium (DeleteOrderStadiumRequest) returns (DeleteOrderStadiumResponse);
+    rpc GetDeletedOrderStadiums (GetDeletedOrderStadiumsRequest) returns (GetDeletedOrderStadiumsResponse);
 }
+
+message GetDeletedOrderStadiumsRequest {
+    string user_id = 1;
+}
+
+message GetDeletedOrderStadiumsResponse {
+    repeated OrderStadium order_stadiums = 1;
+}
+
+message DeleteOrderStadiumRequest {
+    string id = 1;
+}
+
+message DeleteOrderStadiumResponse {
+    string message = 1;
 
 message UpdateOrderStadiumRequest {
     string id = 1;
