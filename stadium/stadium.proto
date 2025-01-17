@@ -12,6 +12,15 @@ service StadiumService {
     rpc DeleteStadium (DeleteStadiumRequest) returns (DeleteStadiumResponse);
     rpc CreateOrderStadium (CreateOrderStadiumRequest) returns (CreateOrderStadiumResponse);
     rpc GetOrderStadiums (GetOrderStadiumsRequest) returns (GetOrderStadiumsResponse);
+    rpc GetOrderStadium (GetOrderStadiumRequest) returns (GetOrderStadiumResponse);
+}
+
+message GetOrderStadiumRequest {
+    string id = 1;
+}
+
+message GetOrderStadiumResponse {
+    OrderStadium order_stadium = 1;
 }
 
 message OrderStadium {
