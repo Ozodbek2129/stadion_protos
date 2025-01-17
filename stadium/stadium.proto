@@ -44,7 +44,7 @@ message CreateOrderStadiumRequest {
 }
 
 message CreateOrderStadiumResponse {
-    string message = 1;
+    OrderStadium order_stadium = 1;
 }
 
 message Stadium {
