@@ -22,6 +22,7 @@ message OrderStadium {
     string start_time = 5;
     string end_time = 6;
     string status = 7;
+    float price = 8;
 }
 
 message GetOrderStadiumsRequest {
