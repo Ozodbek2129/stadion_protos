@@ -13,6 +13,22 @@ service StadiumService {
     rpc CreateOrderStadium (CreateOrderStadiumRequest) returns (CreateOrderStadiumResponse);
     rpc GetOrderStadiums (GetOrderStadiumsRequest) returns (GetOrderStadiumsResponse);
     rpc GetOrderStadium (GetOrderStadiumRequest) returns (GetOrderStadiumResponse);
+    rpc UpdateOrderStadium (UpdateOrderStadiumRequest) returns (UpdateOrderStadiumResponse);
+}
+
+message UpdateOrderStadiumRequest {
+    string id = 1;
+    string user_id = 2;
+    string stadium_id = 3;
+    string date = 4;
+    string start_time = 5;
+    string end_time = 6;
+    string status = 7;
+    float price = 8;
+}
+
+message UpdateOrderStadiumResponse {
+    OrderStadium order_stadium = 1;
 }
 
 message GetOrderStadiumRequest {
