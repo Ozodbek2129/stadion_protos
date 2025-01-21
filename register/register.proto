@@ -13,26 +13,41 @@ service RegisterService {
     rpc DeleteRegister (DeleteRegisterRequest) returns (DeleteRegisterResponse);
     rpc Login (LoginRequest) returns (LoginResponse);
     rpc UpdatePassword (UpdatePasswordRequest) returns (UpdatePasswordResponse);
-    rpc CreatePassword (CreatePasswordRequest) returns (CreatePasswordResponse);
-    rpc ConfirmationPassword (ConfirmationPasswordRequest) returns (ConfirmationPasswordResponse);
+    rpc GetByEmail (GetByEmailRequest) returns (GetByEmailResponse);
+    rpc UpdateRole (UpdateRoleRequest) returns (UpdateRoleResponse);
+    rpc Tobeanadmin (TobeanadminRequest) returns (TobeanadminResponse);
 }
 
-message ConfirmationPasswordRequest {
-    string email = 1;
-    string code = 2;
+message TobeanadminRequest {
+    string id = 1;
 }
 
-message ConfirmationPasswordResponse {
+message TobeanadminResponse {
     string message = 1;
 }
 
-message CreatePasswordRequest {
-    string email = 1;
-    string password = 2;
+message UpdateRoleRequest {
+    string id = 1;
+    string role = 2;
 }
 
-message CreatePasswordResponse {
+message UpdateRoleResponse {
     string message = 1;
+}
+
+message GetByEmailRequest {
+    string email = 1;
+}
+
+message GetByEmailResponse {
+    string id = 1;
+    string email = 2;
+    string first_name = 3;
+    string last_name = 4;
+    string phonenummer = 5;
+    string password = 6;
+    string image = 7;
+    string role = 8;
 }
 
 message UpdatePasswordRequest {
@@ -69,7 +84,7 @@ message GetRegistersRequest {
 }
 
 message GetRegistersResponse {
-    repeated Register registers = 1;
+    repeated Getregister registers = 1;
     int32 total = 2;
 }
 
@@ -77,12 +92,24 @@ message GetRegisterRequest {
     string id = 1;
 }
 
+message Getregister{
+    string id = 1;
+    string email = 2;
+    string first_name = 3;
+    string last_name = 4;
+    string phonenummer = 5;
+    string password = 6;
+    string image = 7;
+    string role = 8;
+}
+
 message GetRegisterResponse {
-    Register register = 1;
+    Getregister register = 1;
 }
 
 message AddImageResponse {
-    string message = 1;
+    string id = 1;
+    string image = 2;
 }
 
 message AddImageRequest {
@@ -91,6 +118,7 @@ message AddImageRequest {
 }
 
 message UpdateRequest {
+    string id = 1;
     string email = 2;
     string first_name = 3;
     string last_name = 4;
@@ -107,12 +135,7 @@ message Register {
     string first_name = 3;
     string last_name = 4;
     string phonenummer = 5;
-    string password = 6;
-    string image = 7;
-    string role = 8;
-    string created_at = 9;
-    string updated_at = 10;
-    int64 deleted_at = 11;
+    string role = 6;
 }
 
 message CreateRegisterRequest {
