@@ -16,6 +16,15 @@ service RegisterService {
     rpc GetByEmail (GetByEmailRequest) returns (GetByEmailResponse);
     rpc UpdateRole (UpdateRoleRequest) returns (UpdateRoleResponse);
     rpc Tobeanadmin (TobeanadminRequest) returns (TobeanadminResponse);
+    rpc CheckUserId (CheckUserIdRequest) returns (CheckUserIdResponse);
+}
+
+message CheckUserIdRequest {
+    string id = 1;
+}
+
+message CheckUserIdResponse {
+    bool is_exist = 1;
 }
 
 message TobeanadminRequest {

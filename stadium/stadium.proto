@@ -1,0 +1,166 @@
+syntax = "proto3";
+
+option go_package = "genproto/stadium";
+
+package stadium;
+
+service StadiumService {
+    rpc CreateStadium(CreateStadiumRequest) returns (CreateStadiumResponse);
+    rpc UpdateStadium (UpdateRequest) returns (UpdateResponse);
+    rpc GetStadium (GetStadiumRequest) returns (GetStadiumResponse);
+    rpc GetStadiums (GetStadiumsRequest) returns (GetStadiumsResponse);
+    rpc DeleteStadium (DeleteStadiumRequest) returns (DeleteStadiumResponse);
+    rpc CreateOrderStadium (CreateOrderStadiumRequest) returns (CreateOrderStadiumResponse);
+    rpc GetOrderStadiums (GetOrderStadiumsRequest) returns (GetOrderStadiumsResponse);
+    rpc GetOrderStadium (GetOrderStadiumRequest) returns (GetOrderStadiumResponse);
+    rpc UpdateOrderStadium (UpdateOrderStadiumRequest) returns (UpdateOrderStadiumResponse);
+    rpc DeleteOrderStadium (DeleteOrderStadiumRequest) returns (DeleteOrderStadiumResponse);
+    rpc GetDeletedOrderStadiums (GetDeletedOrderStadiumsRequest) returns (GetDeletedOrderStadiumsResponse);
+}
+
+message GetDeletedOrderStadiumsRequest {
+    string user_id = 1;
+}
+
+message GetDeletedOrderStadiumsResponse {
+    repeated OrderStadium order_stadiums = 1;
+}
+
+message DeleteOrderStadiumRequest {
+    string id = 1;
+}
+
+message DeleteOrderStadiumResponse {
+    string message = 1;
+}
+message UpdateOrderStadiumRequest {
+    string id = 1;
+    string user_id = 2;
+    string stadium_id = 3;
+    string date = 4;
+    string start_time = 5;
+    string end_time = 6;
+    string status = 7;
+    float price = 8;
+}
+
+message UpdateOrderStadiumResponse {
+    OrderStadium order_stadium = 1;
+}
+
+message GetOrderStadiumRequest {
+    string id = 1;
+}
+
+message GetOrderStadiumResponse {
+    OrderStadium order_stadium = 1;
+}
+
+message OrderStadium {
+    string id = 1;
+    string user_id = 2;
+    string stadium_id = 3;
+    string date = 4;
+    string start_time = 5;
+    string end_time = 6;
+    string status = 7;
+    float price = 8;
+}
+
+message GetOrderStadiumsRequest {
+    string user_id = 1;
+}
+
+message GetOrderStadiumsResponse {
+    repeated OrderStadium order_stadiums = 1;   
+}
+
+message CreateOrderStadiumRequest {
+    string user_id = 1;
+    string stadium_id = 2;
+    string date = 3;
+    string start_time = 4;
+    string end_time = 5;
+    string status = 6;
+    float price = 7;
+}
+
+message CreateOrderStadiumResponse {
+    OrderStadium order_stadium = 1;
+}
+
+message Stadium {
+    string id = 1;
+    string user_id = 2;
+    float latitude = 3;
+    float longitude = 4;
+    string name = 5;
+    string address = 6;
+    string phonenummer = 7;
+    float price = 8;
+    float length = 9;
+    float width = 10;
+    string situation = 11;
+    repeated string image_urls = 12;
+}
+
+message CreateStadiumRequest {
+    string user_id = 1;
+    float latitude = 2;
+    float longitude = 3;
+    string name = 4;
+    string address = 5;
+    string phonenummer = 6;
+    float price = 7;
+    float length = 8;
+    float width = 9;
+    string situation = 10;
+    repeated string image_urls = 11;
+}
+
+message CreateStadiumResponse {
+    Stadium stadium = 1;
+}
+
+message UpdateRequest {
+    string id = 1;
+    string user_id = 2;
+    float latitude = 3;
+    float longitude = 4;
+    string name = 5;
+    string address = 6;
+    string phonenummer = 7;
+    float price = 8;
+    float length = 9;
+    float width = 10;
+    string situation = 11;
+    repeated string image_urls = 12;
+}
+
+message UpdateResponse {
+    Stadium stadium = 1;
+}
+
+message GetStadiumRequest {
+    string id = 1;
+}
+
+message GetStadiumResponse {
+    Stadium stadium = 1;
+}
+
+message GetStadiumsRequest {
+    string user_id = 1;
+}
+
+message GetStadiumsResponse {
+    repeated Stadium stadiums = 1;
+}
+
+message DeleteStadiumRequest {
+    string id = 1;
+}
+
+message DeleteStadiumResponse {
+    string message = 1;
+}
