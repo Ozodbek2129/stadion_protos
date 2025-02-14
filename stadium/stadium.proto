@@ -25,7 +25,7 @@ message GetAllStadiumRequest {
 }
 
 message GetAllStadiumResponse {
-    Stadium stadiums = 1;
+    repeated Stadium stadiums = 1;
 }
 
 message GetDeletedOrderStadiumsRequest {
