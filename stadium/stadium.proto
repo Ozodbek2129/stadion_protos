@@ -16,6 +16,16 @@ service StadiumService {
     rpc UpdateOrderStadium (UpdateOrderStadiumRequest) returns (UpdateOrderStadiumResponse);
     rpc DeleteOrderStadium (DeleteOrderStadiumRequest) returns (DeleteOrderStadiumResponse);
     rpc GetDeletedOrderStadiums (GetDeletedOrderStadiumsRequest) returns (GetDeletedOrderStadiumsResponse);
+    rpc GetAllStadium (GetAllStadiumRequest) returns (GetAllStadiumResponse);
+}
+
+message GetAllStadiumRequest {
+    int32 limit = 1;
+    int32 page = 2;
+}
+
+message GetAllStadiumResponse {
+    Stadium stadiums = 1;
 }
 
 message GetDeletedOrderStadiumsRequest {
